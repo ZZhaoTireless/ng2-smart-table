@@ -6,6 +6,7 @@ export class Column {
   type: string = '';
   class: string = '';
   width: string = '';
+  show: boolean = true;
   isSortable: boolean = false;
   isEditable: boolean = true;
   isAddable: boolean = true;
@@ -61,6 +62,7 @@ export class Column {
     this.filter = this.settings['filter'];
     this.renderComponent = this.settings['renderComponent'];
 
+    this.show = this.settings['show'] === false ? false : true;
     this.isFilterable = typeof this.settings['filter'] === 'undefined' ? true : !!this.settings['filter'];
     this.defaultSortDirection = ['asc', 'desc']
       .indexOf(this.settings['sortDirection']) !== -1 ? this.settings['sortDirection'] : '';
